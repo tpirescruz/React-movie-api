@@ -1,38 +1,221 @@
-.App {
-  text-align: center;
+
+/* Set root font-size @10px equivalent */
+html {
+  font-size: .625em; /* fallback IE8+ */
+  font-size: calc(1em * .625); /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Remove focus for mouse users */
+:focus:not(:focus-visible) {
+outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Set core body defaults */
+body {
+min-height: 100vh;
+font-size: 1.6rem;
+text-rendering: optimizeSpeed;
+line-height: 1.5;
+color: #000;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+margin: 0;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+text-decoration-skip-ink: auto;
+}
+
+/* Make medias easier to work with */
+img,
+video,
+audio {
+max-width: 100%;
+display: block;
+height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+font: inherit;
+}
+
+/* Set cursor pointer */
+label[for],
+button,
+input[type="submit"],
+select {
+cursor: pointer;
+}
+
+/* Remove font style on address */
+address {
+font-style: normal;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+* {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+clip: rect(1px, 1px, 1px, 1px);
+height: 1px;
+overflow: hidden;
+width: 1px;
+position: absolute;
+white-space: nowrap;
+}
+
+/* Image replacement technique 2012 H5BP  - https://css-tricks.com/the-image-replacement-museum/ */
+
+.ir {
+font: 0/0 a;
+color: transparent;
+border: 0;
+text-shadow: none;
+}
+
+/* Phone links active only under 36em (576px) */
+a[href^="tel"] {
+white-space: nowrap;
+pointer-events: none;
+text-decoration: none;
+color: inherit;
+}
+
+@media (max-width: 36em) {
+a[href^="tel"] {
+  pointer-events: auto;
+  text-decoration: underline;
+}
+}
+
+/* Print external URLs */
+@media print {
+a {
+  text-decoration: underline;
+}
+
+a[href]:not([href^='#'])::after {
+  content: '('attr(href)')';
+}
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Poppins:wght@500&display=swap');
+
+:root {
+  --primary: #36dac0;
+  --counter: #FF08E2;
+  --white: #eeeeee;
+  --background: #424242;
+}
+::selection {
+  background-color: var(--primary);
+  color: var(--white);
+}
+body {
+    background-image: linear-gradient(to right top, #212121, #212121, #212121, #212121, #212121, #242424, #262626, #292929, #2f2f2f, #353535, #3c3c3c, #424242);    text-align: left;
+    font-family: 'Roboto';
+    font-weight: 400;
+    color: var(--white);
+}
+
+main {
+    padding:  5rem ;
+}
+.title-container p {
+    color: white;
+    font-weight: 100;
+}
+h1 span{
+  color: var(--primary);
+}
+h1 {
+    color: var(--white);
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 3.8rem;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+.bi-camera-reels {
+    color: #36dac0;
+    font-weight: 700;
+    font-size: 4.5rem;
+    transform: rotate(-20deg);
+}
+
+h2 {
+  color: var(--primary);
+  font-family: 'Poppins';
+  font-size: 4rem;
+  font-weight: 700;
+  border-bottom: 3px solid var(--primary);
+  margin: 2rem 0 ;
+  padding: 2rem 0;
+}
+.movie-section{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes shift {
+    from {
+        color: #FF08E2;
+    }
+    to {
+        
+        color: #36dac0;
+    }
 }
