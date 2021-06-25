@@ -10,25 +10,23 @@ const SearchResults = (props) => {
     const getSearchResults = () => {
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${searchQuery}`)
         .then(resp => resp.json())
-        .then(data => setSearchResults(data))
+        .then(response => setSearchResults(response.results))
     }
     console.log(searchResults)
 
-    useEffect(() => getSearchResults(),[searchQuery, key]);
+    useEffect(() => getSearchResults(),[key, searchQuery]);
     return (
         <div className='search-results'>
-            <h2>Search results for: <span>{searchQuery}</span></h2>
+            <h2>Search results for: <span>'{searchQuery}'</span></h2>
         <div className='movie-section'>
-            {searchResults ?? searchResults.map((item, index) =>(
-                <Card 
-                    key={index}
-                    title={item.original_title}
-                    img={item.poster_path}
-                    data={item}
-                    year={item.release_date}
-
-
-                />
+            {searchResults === undefined ? <p className='loading'>Loading the results</p> :  searchResults.map((item, index) =>(
+              <Card 
+                key={index}
+                title={item.original_title}
+                img={item.poster_path}
+                data={item}
+                year={item.release_date}
+              />
             ))}
         </div>
         </div>
